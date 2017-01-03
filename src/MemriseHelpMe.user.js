@@ -2,6 +2,7 @@
 // @name           Memrise Help Me
 // @namespace      https://github.com/tomislater
 // @description    If you click on the input, you will see a hint
+// @author         tomislater
 // @match          http://www.memrise.com/course/*/garden/review/*
 // @match          http://www.memrise.com/course/*/garden/audio/review/*
 // @version        1.0.0
