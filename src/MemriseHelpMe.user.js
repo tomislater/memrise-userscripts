@@ -5,7 +5,7 @@
 // @author         tomislater
 // @match          http://www.memrise.com/course/*/garden/review/*
 // @match          http://www.memrise.com/course/*/garden/audio/review/*
-// @version        1.1.0
+// @version        1.2.0
 // @updateURL      https://github.com/tomislater/memrise-userscripts/raw/master/src/MemriseHelpMe.user.js
 // @downloadURL    https://github.com/tomislater/memrise-userscripts/raw/master/src/MemriseHelpMe.user.js
 // @grant          none
@@ -19,15 +19,30 @@ var Arrive=function(a,b,c){"use strict";function l(a,b,c){e.addMethod(b,c,a.unbi
 $( document ).ready(function() {
     $(document).arrive("input.typing-type-here", function() {
         var review_button = $("a.do-review");
+
+        // put a button "Help Me"
         review_button.after("<button id='help-me'>Help Me</button>");
 
-        $("button#help-me").click(function() {
-            var box = MEMRISE.garden.box;
-            var input = box.$input;
-            var word = box.thing.columns[1].val;
+        var box = MEMRISE.garden.box;
+        var input = box.$input;
+        var word = box.thing.columns[1].val;
 
+        $("button#help-me").click(function() {
             input.val(input.val() + word[input.val().length]);
             input.focus();
         });
+
+
+        // put the letters in random order
+        review_button.parent().after("<div id='random-order-letters' class='qattributes cnt'></div>");
+
+        var i;
+        var tmp_word = word;
+
+        for (i = 0; i < word.length; i++) {
+            var random_number = Math.floor(Math.random() * tmp_word.length);
+            $("div#random-order-letters").append("<span class='badge'>" + tmp_word[random_number] + "</span>");
+            tmp_word = tmp_word.slice(0, random_number) + tmp_word.slice(random_number + 1);
+        }
     });
 });
