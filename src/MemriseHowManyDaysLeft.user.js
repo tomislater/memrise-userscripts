@@ -3,7 +3,7 @@
 // @namespace    https://github.com/tomislater
 // @description  Show how many days left
 // @author       tomislater
-// @match        http://www.memrise.com/home/
+// @match        www.memrise.com/home/
 // @version      1.0
 // @updateURL    https://github.com/tomislater/memrise-userscripts/raw/master/src/MemriseHowManyDaysLeft.user.js
 // @downloadURL  https://github.com/tomislater/memrise-userscripts/raw/master/src/MemriseHowManyDaysLeft.user.js
