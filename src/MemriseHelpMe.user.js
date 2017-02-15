@@ -5,7 +5,7 @@
 // @author         tomislater
 // @match          www.memrise.com/course/*/garden/review/*
 // @match          www.memrise.com/course/*/garden/audio/review/*
-// @version        1.2
+// @version        1.3
 // @updateURL      https://github.com/tomislater/memrise-userscripts/raw/master/src/MemriseHelpMe.user.js
 // @downloadURL    https://github.com/tomislater/memrise-userscripts/raw/master/src/MemriseHelpMe.user.js
 // @grant          none
