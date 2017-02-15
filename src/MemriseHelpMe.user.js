@@ -5,7 +5,7 @@
 // @author         tomislater
 // @match          www.memrise.com/course/*/garden/review/*
 // @match          www.memrise.com/course/*/garden/audio/review/*
-// @version        1.3
+// @version        1.4
 // @updateURL      https://github.com/tomislater/memrise-userscripts/raw/master/src/MemriseHelpMe.user.js
 // @downloadURL    https://github.com/tomislater/memrise-userscripts/raw/master/src/MemriseHelpMe.user.js
 // @grant          none
@@ -44,5 +44,16 @@ $( document ).ready(function() {
             $("div#random-order-letters").append("<span class='badge'>" + tmp_word[random_number] + "</span>");
             tmp_word = tmp_word.slice(0, random_number) + tmp_word.slice(random_number + 1);
         }
+
+        $('body').on('input', function(e) {
+            var value = box.$input.val();
+
+            $("div#random-order-letters").children().show();
+
+            var i;
+            for (i = 0; i < value.length; i++) {
+                $($("div#random-order-letters span:contains('" + value[i] + "')")[0]).hide();
+            }
+        });
     });
 });
