@@ -5,7 +5,7 @@
 // @author         tomislater
 // @match          www.memrise.com/course/*/garden/review/*
 // @match          www.memrise.com/course/*/garden/audio/review/*
-// @version        1.5
+// @version        1.6
 // @updateURL      https://github.com/tomislater/memrise-userscripts/raw/master/src/MemriseHelpMe.user.js
 // @downloadURL    https://github.com/tomislater/memrise-userscripts/raw/master/src/MemriseHelpMe.user.js
 // @grant          none
@@ -35,7 +35,7 @@ $( document ).ready(function() {
 
         var box = MEMRISE.garden.box;
         var input = box.$input;
-        var word = box.thing.columns[1].val;
+        var word = box.thing.columns[1].val.toLowerCase();
 
         $("button#help-me").click(function() {
             input.val(input.val() + word[input.val().length]);
@@ -46,7 +46,7 @@ $( document ).ready(function() {
 
 
         // put the letters in random order
-        review_button.parent().after("<div id='random-order-letters' class='qattributes cnt'></div>");
+        review_button.parent().after("<br/><br/><div id='random-order-letters' class='qattributes cnt'></div>");
 
         var i;
         var tmp_word = word;
