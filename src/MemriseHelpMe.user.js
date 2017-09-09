@@ -3,9 +3,10 @@
 // @namespace      https://github.com/tomislater
 // @description    If you click on the input, you will see a hint
 // @author         tomislater
+// @match          www.memrise.com/course/*/garden/classic_review/*
 // @match          www.memrise.com/course/*/garden/review/*
 // @match          www.memrise.com/course/*/garden/audio/review/*
-// @version        1.6
+// @version        1.7
 // @updateURL      https://github.com/tomislater/memrise-userscripts/raw/master/src/MemriseHelpMe.user.js
 // @downloadURL    https://github.com/tomislater/memrise-userscripts/raw/master/src/MemriseHelpMe.user.js
 // @grant          none
@@ -38,10 +39,14 @@ $( document ).ready(function() {
         var word = box.thing.columns[1].val.toLowerCase();
 
         $("button#help-me").click(function() {
-            input.val(input.val() + word[input.val().length]);
-            input.focus();
+            var character = word[input.val().length];
 
-            hide_letters(box);
+            if (character != null) {
+                input.val(input.val() + character);
+                hide_letters(box);
+            }
+
+            input.focus();
         });
 
 
