@@ -6,7 +6,7 @@
 // @match          www.memrise.com/course/*/garden/classic_review/*
 // @match          www.memrise.com/course/*/garden/review/*
 // @match          www.memrise.com/course/*/garden/audio/review/*
-// @version        1.7
+// @version        1.8
 // @updateURL      https://github.com/tomislater/memrise-userscripts/raw/master/src/MemriseHelpMe.user.js
 // @downloadURL    https://github.com/tomislater/memrise-userscripts/raw/master/src/MemriseHelpMe.user.js
 // @grant          none
@@ -36,7 +36,7 @@ $( document ).ready(function() {
 
         var box = MEMRISE.garden.box;
         var input = box.$input;
-        var word = box.thing.columns[1].val.toLowerCase();
+        var word = box.testData.correct.toLowerCase();
 
         $("button#help-me").click(function() {
             var character = word[input.val().length];
